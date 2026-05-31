@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Quantum Rig Shop - Custom PCs, High-End Graphics Cards, Processors, and Gaming Gear with Live Compatibility Builder.">
+  <title>Quantum Rigs | Premium Computer & Custom PC Shop</title>
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="style.css">
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+  <div class="app-container">
+    
+    <!-- Sticky Navigation Header -->
+    <header id="main-header">
+      <a href="#home" class="logo" id="nav-logo">
+        <i data-lucide="cpu"></i>
+        <span>QUANTUM RIGS</span>
+      </a>
+      
+      <nav>
+        <a href="#home" class="nav-link active" id="link-home">Home</a>
+        <a href="#shop" class="nav-link" id="link-shop">Shop</a>
+        <a href="#builder" class="nav-link" id="link-builder">PC Builder</a>
+      </nav>
+      
+      <div class="header-actions">
+        <div class="search-box">
+          <i data-lucide="search"></i>
+          <input type="text" id="global-search" placeholder="Search gear...">
+        </div>
+        
+        <div class="wishlist-icon" id="header-wishlist" title="View Wishlist">
+          <i data-lucide="heart"></i>
+          <span class="badge" id="wishlist-count">0</span>
+        </div>
+        
+        <div class="cart-icon" id="header-cart" title="View Cart">
+          <i data-lucide="shopping-cart"></i>
+          <span class="badge" id="cart-count">0</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main View Section Container -->
+    <main>
+      
+      <!-- VIEW 1: HOME/LANDING SECTION -->
+      <section id="view-home" class="view-section active">
+        <!-- Hero Section -->
+        <div class="hero-section">
+          <div class="hero-content">
+            <h1>Elevate Your Gaming <span>Quantum Power</span></h1>
+            <p>Experience bleeding-edge custom gaming desktop builds, elite graphic cards, processors, and mechanical gear designed for pros.</p>
+            <div class="hero-buttons">
+              <button class="btn btn-primary" id="hero-btn-builder">Configure PC <i data-lucide="hammer"></i></button>
+              <button class="btn btn-secondary" id="hero-btn-shop">Browse Shop <i data-lucide="arrow-right"></i></button>
+            </div>
+          </div>
+          <div class="hero-visual">
+            <div class="glow-circle"></div>
+            <div class="hero-image-wrapper">
+              <img src="images/hero.png" alt="Custom Gaming PC Build" id="hero-img-showcase">
+            </div>
+          </div>
+        </div>
+
+        <!-- Promo Banner Cards -->
+        <div class="promo-cards">
+          <div class="promo-card glass-panel">
+            <i data-lucide="hammer"></i>
+            <h3>Custom PC Configurator</h3>
+            <p>Choose parts with live budget tracking, watt usage, and smart compatibility validation rules.</p>
+            <a href="#builder" id="promo-link-builder">Launch Configurator <i data-lucide="arrow-right"></i></a>
+          </div>
+          <div class="promo-card glass-panel">
+            <i data-lucide="zap"></i>
+            <h3>Express Pro Assembly</h3>
+            <p>Our engineers assemble, cable-manage, and benchmark your custom build within 48 hours.</p>
+            <a href="#shop" id="promo-link-prebuilt">Browse Prebuilts <i data-lucide="arrow-right"></i></a>
+          </div>
+          <div class="promo-card glass-panel">
+            <i data-lucide="shield-check"></i>
+            <h3>3-Year Rig Warranty</h3>
+            <p>Every prebuilt system and custom PC includes our comprehensive diagnostic and repair warranty.</p>
+            <a href="#shop" id="promo-link-warranty">Learn More <i data-lucide="arrow-right"></i></a>
+          </div>
+        </div>
+
+        <!-- Featured Products -->
+        <div class="section-title-wrapper">
+          <h2 class="section-title">Featured Gear</h2>
+          <button class="btn btn-secondary" id="home-view-all-btn">View All Gear</button>
+        </div>
+        
+        <div class="products-grid" id="featured-products-container">
+          <!-- Featured products dynamic load -->
+        </div>
+      </section>
+
+      
+      <!-- VIEW 2: PRODUCT CATALOG SECTION -->
+      <section id="view-shop" class="view-section">
+        <div class="shop-layout">
+          <!-- Filter Sidebar -->
+          <aside class="filters-sidebar glass-panel">
+            <div class="filter-group">
+              <h4>Categories</h4>
+              <div class="filter-options" id="category-filter-container">
+                <label class="checkbox-label"><input type="checkbox" value="cpus" class="cat-filter"> CPUs</label>
+                <label class="checkbox-label"><input type="checkbox" value="gpus" class="cat-filter"> GPUs</label>
+                <label class="checkbox-label"><input type="checkbox" value="motherboards" class="cat-filter"> Motherboards</label>
+                <label class="checkbox-label"><input type="checkbox" value="ram" class="cat-filter"> RAM / Memory</label>
+                <label class="checkbox-label"><input type="checkbox" value="storage" class="cat-filter"> NVMe Storage</label>
+                <label class="checkbox-label"><input type="checkbox" value="psus" class="cat-filter"> Power Supplies</label>
+                <label class="checkbox-label"><input type="checkbox" value="cases" class="cat-filter"> Gaming Cases</label>
+                <label class="checkbox-label"><input type="checkbox" value="coolers" class="cat-filter"> CPU Coolers</label>
+                <label class="checkbox-label"><input type="checkbox" value="prebuilt" class="cat-filter"> Prebuilt Systems</label>
+                <label class="checkbox-label"><input type="checkbox" value="peripherals" class="cat-filter"> Peripherals / Displays</label>
+              </div>
+            </div>
+            
+            <div class="filter-group">
+              <h4>Max Budget</h4>
+              <div class="price-range-inputs">
+                <input type="range" id="price-range-input" min="0" max="2600" value="2600" step="50">
+                <div class="summary-row">
+                  <span>Limit:</span>
+                  <span class="price-val" id="price-limit-display">$2600</span>
+                </div>
+              </div>
+            </div>
+
+            <button class="btn btn-secondary" style="width: 100%;" id="btn-clear-filters">Reset Filters</button>
+          </aside>
+
+          <!-- Product Grid Area -->
+          <div class="catalog-main">
+            <div class="catalog-header">
+              <p id="results-count-display">Showing 0 products</p>
+              <select class="sort-select" id="catalog-sort">
+                <option value="default">Default Sort</option>
+                <option value="price-low">Price: Low to High</option>
+                <option value="price-high">Price: High to Low</option>
+                <option value="rating">Top Rated</option>
+              </select>
+            </div>
+            
+            <div class="products-grid" id="shop-products-container">
+              <!-- Products loaded dynamically -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      
+      <!-- VIEW 3: PC CONFIGURATOR SECTION -->
+      <section id="view-builder" class="view-section">
+        <div class="section-title-wrapper">
+          <h2 class="section-title">Custom PC Configurator</h2>
+        </div>
+        
+        <div class="builder-layout">
+          <!-- Step Rows -->
+          <div class="builder-steps-container">
+            <!-- CPU Row -->
+            <div class="builder-step-row glass-panel" id="step-row-cpus">
+              <div class="step-icon-badge"><i data-lucide="cpu"></i></div>
+              <div class="step-cat-label">CPU</div>
+              <div class="step-selected-part" id="part-selected-cpus">
+                <span class="part-empty-msg">Select a processor...</span>
+              </div>
+              <div class="step-action-col">
+                <button class="btn btn-accent btn-choose-part" data-category="cpus">Choose</button>
+              </div>
+            </div>
+            
+            <!-- Cooler Row -->
+            <div class="builder-step-row glass-panel" id="step-row-coolers">
+              <div class="step-icon-badge"><i data-lucide="fan"></i></div>
+              <div class="step-cat-label">Cooling</div>
+              <div class="step-selected-part" id="part-selected-coolers">
+                <span class="part-empty-msg">Select custom cooling...</span>
+              </div>
+              <div class="step-action-col">
+                <button class="btn btn-accent btn-choose-part" data-category="coolers">Choose</button>
+              </div>
+            </div>
+            
+            <!-- Motherboard Row -->
+            <div class="builder-step-row glass-panel" id="step-row-motherboards">
+              <div class="step-icon-badge"><i data-lucide="layers"></i></div>
+              <div class="step-cat-label">Motherboard</div>
+              <div class="step-selected-part" id="part-selected-motherboards">
+                <span class="part-empty-msg">Select motherboard...</span>
+              </div>
+              <div class="step-action-col">
+                <button class="btn btn-accent btn-choose-part" data-category="motherboards">Choose</button>
+              </div>
+            </div>
+            
+            <!-- GPU Row -->
+            <div class="builder-step-row glass-panel" id="step-row-gpus">
+              <div class="step-icon-badge"><i data-lucide="zap"></i></div>
+              <div class="step-cat-label">Graphics Card</div>
+              <div class="step-selected-part" id="part-selected-gpus">
+                <span class="part-empty-msg">Select graphics card...</span>
+              </div>
+              <div class="step-action-col">
+                <button class="btn btn-accent btn-choose-part" data-category="gpus">Choose</button>
+              </div>
+            </div>
+            
+            <!-- RAM Row -->
+            <div class="builder-step-row glass-panel" id="step-row-ram">
+              <div class="step-icon-badge"><i data-lucide="database"></i></div>
+              <div class="step-cat-label">RAM</div>
+              <div class="step-selected-part" id="part-selected-ram">
+                <span class="part-empty-msg">Select system memory...</span>
+              </div>
+              <div class="step-action-col">
+                <button class="btn btn-accent btn-choose-part" data-category="ram">Choose</button>
+              </div>
+            </div>
+            
+            <!-- Storage Row -->
+            <div class="builder-step-row glass-panel" id="step-row-storage">
+              <div class="step-icon-badge"><i data-lucide="hard-drive"></i></div>
+              <div class="step-cat-label">Storage</div>
+              <div class="step-selected-part" id="part-selected-storage">
+                <span class="part-empty-msg">Select SSD storage...</span>
+              </div>
+              <div class="step-action-col">
+                <button class="btn btn-accent btn-choose-part" data-category="storage">Choose</button>
+              </div>
+            </div>
+            
+            <!-- Case Row -->
+            <div class="builder-step-row glass-panel" id="step-row-cases">
+              <div class="step-icon-badge"><i data-lucide="monitor"></i></div>
+              <div class="step-cat-label">Case</div>
+              <div class="step-selected-part" id="part-selected-cases">
+                <span class="part-empty-msg">Select tower chassis...</span>
+              </div>
+              <div class="step-action-col">
+                <button class="btn btn-accent btn-choose-part" data-category="cases">Choose</button>
+              </div>
+            </div>
+            
+            <!-- PSU Row -->
+            <div class="builder-step-row glass-panel" id="step-row-psus">
+              <div class="step-icon-badge"><i data-lucide="plug"></i></div>
+              <div class="step-cat-label">Power Supply</div>
+              <div class="step-selected-part" id="part-selected-psus">
+                <span class="part-empty-msg">Select power unit...</span>
+              </div>
+              <div class="step-action-col">
+                <button class="btn btn-accent btn-choose-part" data-category="psus">Choose</button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Summary Sidebar -->
+          <div class="builder-summary-sidebar glass-panel">
+            <h3 class="summary-heading">System Diagnostics</h3>
+            
+            <div class="builder-stats-grid">
+              <div class="stat-metric-card">
+                <div class="label">Total Wattage</div>
+                <div class="val" id="builder-wattage-val">50 W</div>
+              </div>
+              <div class="stat-metric-card">
+                <div class="label">Parts Count</div>
+                <div class="val" id="builder-parts-count">0 / 8</div>
+              </div>
+            </div>
+            
+            <div class="builder-compatibility-banner compatible" id="builder-compat-status">
+              <i data-lucide="check-circle-2"></i> All parts compatible. Start choosing components!
+            </div>
+            
+            <div id="builder-compatibility-logs">
+              <!-- Logs loaded dynamically -->
+            </div>
+            
+            <div class="builder-total-price-section">
+              <span>Total Build Price:</span>
+              <h2 id="builder-total-price">$0.00</h2>
+            </div>
+            
+            <button class="btn btn-primary" style="width: 100%;" id="builder-add-to-cart" disabled>Add Build To Cart</button>
+            <button class="btn btn-secondary" style="width: 100%; margin-top: 10px;" id="builder-reset-btn">Reset Configuration</button>
+          </div>
+        </div>
+      </section>
+
+      
+      <!-- VIEW 4: PRODUCT DETAILS SECTION -->
+      <section id="view-details" class="view-section">
+        <button class="btn btn-secondary" style="margin-bottom: 30px;" id="details-back-btn">
+          <i data-lucide="arrow-left"></i> Back to Catalog
+        </button>
+        
+        <div class="details-container">
+          <!-- Gallery -->
+          <div class="details-gallery">
+            <div class="details-img-panel">
+              <img id="details-large-image" src="" alt="Product Image">
+            </div>
+          </div>
+          
+          <!-- Product Information -->
+          <div class="details-main-info">
+            <span class="product-cat" id="details-category">Category</span>
+            <h1 id="details-title">Product Name</h1>
+            
+            <div class="details-meta-row">
+              <div class="product-rating" id="details-rating">
+                <!-- Stars loaded dynamic -->
+              </div>
+              <span id="details-stock-status" style="font-weight: 600;">In Stock</span>
+            </div>
+            
+            <p class="details-desc" id="details-description">Detailed description placeholder.</p>
+            
+            <div class="details-price-buy">
+              <span class="price" id="details-price">$0.00</span>
+              <button class="btn btn-primary" id="details-add-to-cart-btn" style="flex: 1;">Add to Cart <i data-lucide="shopping-cart"></i></button>
+              <button class="btn btn-secondary" id="details-wishlist-btn" title="Add to Wishlist"><i data-lucide="heart"></i></button>
+            </div>
+            
+            <h3 style="margin-top: 20px; color: var(--accent-cyan);">Specifications</h3>
+            <table class="details-specs-table">
+              <tbody id="details-specs-body">
+                <!-- Dynamic specifications rows -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      
+      <!-- VIEW 5: CART SECTION -->
+      <section id="view-cart" class="view-section">
+        <div class="section-title-wrapper">
+          <h2 class="section-title">Your Cart</h2>
+        </div>
+        
+        <div class="cart-layout" id="cart-layout-container">
+          <!-- Items List Column -->
+          <div class="cart-items-container glass-panel" id="cart-items-list">
+            <!-- Loading dynamic items here -->
+          </div>
+          
+          <!-- Summary Box -->
+          <div class="order-summary-card glass-panel">
+            <h3 class="order-summary-title">Summary</h3>
+            
+            <div class="summary-row">
+              <span>Subtotal:</span>
+              <span id="cart-summary-subtotal">$0.00</span>
+            </div>
+            <div class="summary-row">
+              <span>Sales Tax (8%):</span>
+              <span id="cart-summary-tax">$0.00</span>
+            </div>
+            <div class="summary-row">
+              <span>Estimated Shipping:</span>
+              <span id="cart-summary-shipping">FREE</span>
+            </div>
+            
+            <div class="coupon-section">
+              <input type="text" id="coupon-code-input" placeholder="Coupon Code (e.g. QUANTUM10)">
+              <button class="btn btn-secondary" id="apply-coupon-btn">Apply</button>
+            </div>
+            <div class="summary-row" id="discount-row-display" style="display: none; color: var(--success);">
+              <span>Coupon Discount:</span>
+              <span id="cart-summary-discount">-$0.00</span>
+            </div>
+            
+            <div class="summary-row total">
+              <span>Total Price:</span>
+              <span id="cart-summary-total">$0.00</span>
+            </div>
+            
+            <button class="btn btn-primary" style="width: 100%; margin-top: 20px;" id="cart-checkout-btn">Proceed To Checkout <i data-lucide="credit-card"></i></button>
+          </div>
+        </div>
+        
+        <!-- Cart Empty State -->
+        <div class="glass-panel cart-empty-state" id="cart-empty-state" style="display: none;">
+          <i data-lucide="shopping-bag"></i>
+          <h3>Your shopping cart is empty</h3>
+          <p>It looks like you haven't added any gear to your cart yet.</p>
+          <button class="btn btn-primary" id="cart-empty-shop-btn">Continue Shopping</button>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h3>QUANTUM RIGS</h3>
+          <p>Quantum Rigs builds custom high-performance gaming desktops and supplies elite parts to hardware enthusiasts globally.</p>
+          <div class="social-links">
+            <span class="social-icon"><i data-lucide="twitter"></i></span>
+            <span class="social-icon"><i data-lucide="instagram"></i></span>
+            <span class="social-icon"><i data-lucide="youtube"></i></span>
+          </div>
+        </div>
+        
+        <div class="footer-col">
+          <h3>Custom Gear</h3>
+          <div class="footer-links">
+            <a href="#builder">PC Configurator</a>
+            <a href="#shop">Prebuilt Systems</a>
+            <a href="#shop">Graphics Cards</a>
+            <a href="#shop">Processors</a>
+          </div>
+        </div>
+        
+        <div class="footer-col">
+          <h3>Customer Service</h3>
+          <div class="footer-links">
+            <a href="#home">Shipping & Returns</a>
+            <a href="#home">Warranty Info</a>
+            <a href="#home">Technical Support</a>
+            <a href="#home">Contact Us</a>
+          </div>
+        </div>
+        
+        <div class="footer-col">
+          <h3>Join The Grid</h3>
+          <p>Subscribe to receive system restock alerts, discount codes, and hardware launch news.</p>
+          <div class="coupon-section" style="margin: 0;">
+            <input type="email" placeholder="Enter email...">
+            <button class="btn btn-primary"><i data-lucide="send"></i></button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <span>© 2026 Quantum Rigs Inc. All rights reserved.</span>
+        <span>Premium Crafted in California</span>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- --- MODAL OVERLAY 1: PART SELECTOR --- -->
+  <div class="modal-overlay" id="part-selector-modal-overlay">
+    <div class="part-selector-modal glass-panel">
+      <div class="modal-header">
+        <h2 id="modal-category-title">Select Component</h2>
+        <i data-lucide="x" class="modal-close-btn" id="part-modal-close"></i>
+      </div>
+      <div class="modal-part-list" id="modal-parts-container">
+        <!-- Part rows dynamically loaded here -->
+      </div>
+    </div>
+  </div>
+
+  <!-- --- MODAL OVERLAY 2: VISUAL CHECKOUT --- -->
+  <div class="modal-overlay" id="checkout-modal-overlay">
+    <div class="part-selector-modal checkout-modal glass-panel">
+      <div class="modal-header">
+        <h2>Secure checkout</h2>
+        <i data-lucide="x" class="modal-close-btn" id="checkout-modal-close"></i>
+      </div>
+      
+      <!-- Checkout grid -->
+      <div class="checkout-grid" id="checkout-grid-form">
+        <!-- Billing Details -->
+        <form class="billing-form" id="checkout-shipping-form" onsubmit="return false;">
+          <h3>Shipping details</h3>
+          <div class="form-group">
+            <label for="shipping-name">Full name</label>
+            <input type="text" id="shipping-name" required placeholder="John Doe">
+          </div>
+          <div class="form-group">
+            <label for="shipping-email">Email address</label>
+            <input type="email" id="shipping-email" required placeholder="johndoe@email.com">
+          </div>
+          <div class="form-group">
+            <label for="shipping-address">Delivery address</label>
+            <input type="text" id="shipping-address" required placeholder="123 Tech Avenue">
+          </div>
+          <div class="form-row-2">
+            <div class="form-group">
+              <label for="shipping-zip">Zip code</label>
+              <input type="text" id="shipping-zip" required placeholder="90210">
+            </div>
+            <div class="form-group">
+              <label for="shipping-city">City</label>
+              <input type="text" id="shipping-city" required placeholder="Los Angeles">
+            </div>
+          </div>
+          
+          <h3 style="margin-top: 10px;">Card details</h3>
+          <div class="form-group">
+            <label for="card-num-input">Card number</label>
+            <input type="text" id="card-num-input" maxlength="19" required placeholder="4111 2222 3333 4444">
+          </div>
+          <div class="form-row-2">
+            <div class="form-group">
+              <label for="card-exp-input">Expires</label>
+              <input type="text" id="card-exp-input" maxlength="5" required placeholder="MM/YY">
+            </div>
+            <div class="form-group">
+              <label for="card-cvv-input">CVV</label>
+              <input type="text" id="card-cvv-input" maxlength="3" required placeholder="123">
+            </div>
+          </div>
+          
+          <button class="btn btn-primary" type="submit" style="margin-top: 15px;" id="btn-submit-order">Place Order</button>
+        </form>
+        
+        <!-- Rotating Credit Card Visualizer -->
+        <div>
+          <div class="card-visualization-container">
+            <div class="credit-card" id="interactive-credit-card">
+              <!-- Front -->
+              <div class="card-front">
+                <div class="summary-row" style="margin: 0; align-items: center;">
+                  <div class="card-chip"></div>
+                  <div class="card-logo">QUANTUM</div>
+                </div>
+                <div class="card-number-display" id="visual-card-number">•••• •••• •••• ••••</div>
+                <div class="card-info-row">
+                  <div class="form-group" style="gap: 2px;">
+                    <span style="font-size: 0.6rem; color: rgba(255,255,255,0.6)">Card holder</span>
+                    <span class="card-holder-display" id="visual-card-holder">YOUR NAME</span>
+                  </div>
+                  <div class="form-group" style="gap: 2px; text-align: right;">
+                    <span style="font-size: 0.6rem; color: rgba(255,255,255,0.6)">Expires</span>
+                    <span class="card-expiry-display" id="visual-card-expiry">MM/YY</span>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Back -->
+              <div class="card-back">
+                <div class="card-magnetic-strip"></div>
+                <div class="card-signature-box">
+                  <span id="visual-card-cvv">•••</span>
+                </div>
+                <div style="padding: 10px 20px 0 20px; font-size: 0.5rem; color: rgba(255,255,255,0.4); text-align: center;">
+                  Authorized signature. Not valid unless signed. Quantum Rigs secure checkout gateway.
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="glass-panel" style="padding: 20px; font-size: 0.85rem; color: var(--text-secondary);">
+            <div class="summary-row" style="margin-bottom: 8px;">
+              <span>Total Payment:</span>
+              <strong style="color: var(--accent-cyan); font-family: var(--font-title); font-size: 1.1rem;" id="checkout-amount-display">$0.00</strong>
+            </div>
+            <p><i data-lucide="shield-check" style="width: 14px; height: 14px; vertical-align: middle; color: var(--success); margin-right: 5px;"></i> End-to-end 256-bit encryption protects all banking data transactions. Card visualizer flips to back dynamically when entering CVV details.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Checkout Success Area (Initially hidden) -->
+      <div id="checkout-success-view" style="display: none;">
+        <div class="success-screen">
+          <div class="success-icon-wrapper">
+            <i data-lucide="check"></i>
+          </div>
+          <h2 style="color: var(--success);">Order Confirmed!</h2>
+          <p style="color: var(--text-secondary); max-width: 500px; margin: 0 auto;">Thank you for shopping with Quantum Rigs. We've sent a detailed receipt and assembly details to <strong id="success-email-display">your email</strong>. Your custom parts have been reserved.</p>
+          <button class="btn btn-primary" id="success-done-btn">Back to Shop</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification System -->
+  <div class="toast-container" id="toast-notification-container"></div>
+
+  <!-- Scripts -->
+  <script src="products.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
